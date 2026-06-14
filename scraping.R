@@ -8,7 +8,7 @@ library(purrr)
 library(janitor)
 
 matches <- read_csv("data/wc2026_matches.csv")
-players = read_csv("data/wc2026_players.csv")
+players <- read_csv("data/wc2026_players.csv")
 
 get_efi_partido <- function(id) {
   Sys.sleep(2)  
@@ -52,4 +52,4 @@ all_stats_efi <- map_df(ids, get_efi_partido)
 data_efi <- all_stats_efi %>% 
             inner_join(players, by = "player_id")
 
-write_csv(data_efi, "data/efi_wc2026.csv")
+write_csv(data_efi, "data/wc2026_efi.csv")
